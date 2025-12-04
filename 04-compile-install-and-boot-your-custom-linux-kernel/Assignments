@@ -1,0 +1,42 @@
+1. Write down what these commands do:
+
+make menuconfig
+
+make -j$(nproc)
+
+make modules_install
+
+make install
+
+update-grub
+
+uname -r
+
+2. After booting:
+
+What does uname -r show before your new kernel?
+
+What does it show after?
+
+Did anything stop working (like WiFi, sound, etc.)? Make notes.
+
+3. Open this file:
+
+less /boot/grub/grub.cfg
+Answer:
+
+How many kernels are listed under menuentry?
+
+Which is the default?
+
+How can you manually choose which one to boot?
+
+4. Fill in the blanks::
+
+File	What it does
+vmlinuz-*	?
+System.map-*	?
+.config	?
+/lib/modules/*	?
+initramfs	?
+ 

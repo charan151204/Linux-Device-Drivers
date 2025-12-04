@@ -1,0 +1,34 @@
+1. Write 3–4 sentence answers:
+
+a. What is a kernel module?
+A kernel module is a piece of code that can be loaded into the Linux kernel at runtime to add new functionality without rebooting or rebuilding the entire kernel.
+
+b. Why do we use printk() instead of printf()?
+The printk is used to write in the kernel buffer dmesg buffer but if we use printf instead it will be writtten in the console instead of buffer.
+
+c. What does insmod do?
+It is a kernel command used to insert a module.
+sudo insmod my_module.ko 
+
+d. What is the purpose of module_init() and module_exit()?
+module_init() specifies the initialization function that runs when your module is loaded.
+module_exit() specifies the cleanup function that runs when your module is removed.
+
+e. Why should kernel modules be tested in VMs?
+because it prevents the system crashing, Protects the actual file system, can be recovered easily.
+
+
+2. Try Error Handling
+Try loading the module twice — what happens?
+insmod: ERROR: could not insert module my_module.ko: File exists
+
+Remove it and try removing it again — what does the kernel say?
+rmmod: ERROR: Module my_module is not currently loaded.
+
+Delete MODULE_LICENSE("GPL") and reload — what warning do you get in dmesg?
+Tainted kernel or proprietory.
+
+3. Write a new module called counter.c:
+It maintains a counter that increases every time the module is loaded.
+When removed, it shows the final count. 
+This introduces you to global variables inside the kernel.

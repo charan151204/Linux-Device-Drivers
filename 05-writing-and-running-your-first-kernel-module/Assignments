@@ -1,0 +1,25 @@
+Assignments
+1. Write 3–4 sentence answers:
+
+What is a kernel module?
+Why do we use printk() instead of printf()?
+What does insmod do?
+What is the purpose of module_init() and module_exit()?
+Why should kernel modules be tested in VMs?
+
+2. Change your module to:
+Print your name and current time when loading
+Print a goodbye message with module name when unloading
+Hint:
+Use printk(KERN_INFO "Author: <Your Name>\n");
+Use #include <linux/timekeeping.h> and ktime_get_real_seconds() for time (optional)
+
+3. Try Error Handling
+Try loading the module twice — what happens?
+Remove it and try removing it again — what does the kernel say?
+Delete MODULE_LICENSE("GPL") and reload — what warning do you get in dmesg?
+
+4. Write a new module called counter.c:
+It maintains a counter that increases every time the module is loaded.
+When removed, it shows the final count. 
+This introduces you to global variables inside the kernel.

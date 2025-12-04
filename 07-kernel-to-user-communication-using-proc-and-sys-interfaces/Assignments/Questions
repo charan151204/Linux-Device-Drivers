@@ -1,0 +1,48 @@
+Assignments
+
+## 1. Short Answer Questions
+
+1. What is the `/proc` filesystem?
+A->The /proc filesystem is a virtual filesystem that provides a window into the kernel.
+
+2. What is the purpose of `seq_printf()`?
+A-> It is a helper in kernel to write output line-by-line in a memory-safe way.
+
+3. Why do we need `proc_create()`?
+A-> `proc_create()` is used to create a new entry in the `/proc` filesystem, allowing user-space programs to interact with kernel data.
+
+4. What happens if you forget `remove_proc_entry()`?
+A-> If you forget to call `remove_proc_entry()`, the proc entry will remain after your module is removed, which can lead to dangling pointers , potential kernel crashes.
+
+5. How does `cat /proc/myinfo` fetch data from the kernel?
+A-> When you run `cat /proc/myinfo`, the kernel calls the read handler of your proc entry, which executes your callback function to generate and return the data to user space.
+
+## 2. Custom Data Display
+
+Modify your module to show:
+- System uptime (you can use `jiffies`)
+- Author name from a `charp` module parameter
+- A counter that increases every time the file is read
+
+**Hint:** Use a static `int` counter and increment it inside `show_myinfo()`.
+
+## 3. Explore Built-in `/proc` Entries
+
+Run the following commands:
+
+```sh
+cat /proc/uptime
+cat /proc/version
+cat /proc/modules
+cat /proc/meminfo
+```
+
+**Questions:**
+1. What type of information does each file provide?
+A->cpu on time -> 96581.01 289420.87
+
+2. Which file shows all currently loaded modules?
+A-> /proc/modules
+
+3. Which file shows your kernel version?
+A-> /proc/version/

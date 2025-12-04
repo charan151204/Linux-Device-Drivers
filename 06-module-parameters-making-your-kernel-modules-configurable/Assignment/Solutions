@@ -1,0 +1,53 @@
+1. Write answers:
+
+## Write Answers
+
+**Q: What is the purpose of module_param() in a kernel module?**
+A: It allows the userspace to pass value to the kernel module while loading it.
+
+**Q: What does the third argument (like 0660) control?**
+A: 0660 refers to permission -rwxrwxrwx → file permission "owner-group-others" → 660 → 110110000 → rw-rw----
+
+**Q: What's the difference between int and charp as types?**
+A: 
+- int → Kernel integer parameter.
+- charp → used for string parameters (character pointer)
+
+**Q: What folder shows live values of module parameters?**
+A: /sys/module/<module_name>/parameters/
+
+**Q: Can you change the value of a parameter at runtime?**
+A: Yes, by writing to the parameters inside the parameters/ folder.
+
+2. Add a new integer parameter called repeat_count. Use it like a loop:
+
+for(int i = 0; i < repeat_count; i++)
+    printk(KERN_INFO "Author = %s\n", author);
+
+Then run:
+sudo insmod param_module.ko author="LinuxBoy" repeat_count=3
+You should see:
+
+Author = LinuxBoy
+Author = LinuxBoy
+Author = LinuxBoy
+
+refer: 03_param_module
+
+3. Explore /sys
+
+Run: ls /sys/module/param_module/parameters/
+Use cat to read the values.
+Use echo to change test_value while the module is loaded.
+Observe how the value changes.
+
+**solution : sysfs.png**
+
+4. Creating a module that:
+
+Takes an array of 3 integers.
+Calculates the average of the numbers.
+Prints the result using printk().
+You’ll use: module_param_array(arr, int, &count, 0660);
+
+**solution : 05_Array_module**

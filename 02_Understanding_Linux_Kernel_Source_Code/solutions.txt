@@ -1,0 +1,28 @@
+
+2. Match the kernel folders with what they do (write it down):
+
+1. fs/	        B. Filesystem support
+2. mm/	        E. Memory allocation and paging
+3. drivers/net/	C. Network interface drivers
+4. arch/x86/	D. x86-specific architecture code
+5. init/	    A. Startup and boot code
+
+
+3. Answer these in your notes:
+ 
+What is the purpose of a Makefile in the kernel?
+It tell the compiler the order in which the image or binary to be built.
+or
+The Makefile is like a set of instructions for building the kernel. It's written in a special format used by a tool called make.
+
+What does Kconfig do?
+The Kconfig system handles kernel configuration options.
+
+Why is the kernel source divided into many folders?
+The kernel source is divided in floders because for modularity, and managing complexity.
+
+Can we remove features from the kernel before building? How?
+Yes, By setting in Kconfig(.config) configuration before building the image.
+
+Why should we avoid modifying the top-level kernel Makefile directly?
+Due to lack of portability , Kbuild problems, loss of new changes

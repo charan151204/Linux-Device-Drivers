@@ -1,0 +1,43 @@
+1. Write down what these commands do:
+
+make menuconfig         : Show config menu and after creates the .config file.
+make -j$(nproc)         : uses all CPU cores to speed up build
+make modules_install    : Install modules
+make install            : install the new kernel image and moves the necessary files to /boot
+update-grub             : Updates the grub menu
+uname -r                : gives the kernel version
+
+2. After booting:
+
+What does uname -r show before your new kernel?
+current kernel version.
+
+What does it show after?
+latest compiler kernel version. 
+
+Did anything stop working (like WiFi, sound, etc.)? Make notes.
+depends on configuration
+
+
+3. Open this file:
+
+less /boot/grub/grub.cfg
+
+How many kernels are listed under menuentry?
+2 kernels and 2 recovery -> 4 entries
+
+Which is the default?
+linux 6.8.0-87-generic
+
+How can you manually choose which one to boot?
+reboot -> bios/uefi -> grub menu ->  new_kernel image -> boot
+
+
+4. Fill in the blanks::
+
+File	            What it does
+vmlinuz-*	        The compressed Linux kernel image that boots the system.
+System.map-*	    A symbol table for the kernel.
+.config	            The kernel configuration file generated during kernel build.
+/lib/modules/*	    Directory that stores all kernel modules (.ko files) for a specific kernel version.
+initramfs	        Initramfs is used as a temporary root filesystem during the Linux boot process.

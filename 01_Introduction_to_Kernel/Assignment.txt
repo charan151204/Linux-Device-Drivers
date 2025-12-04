@@ -1,0 +1,7 @@
+Find your kernel version: uname -r
+List 5 running processes: ps aux | head -5
+View loaded kernel modules: lsmod
+Explore system uptime: cat /proc/uptime
+Log Session a folder and file: mkdir ~/mytest
+                                               cd ~/mytest
+                                               touch sample.txt

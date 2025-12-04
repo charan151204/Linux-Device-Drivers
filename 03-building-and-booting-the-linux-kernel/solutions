@@ -1,0 +1,24 @@
+1. What is the role of GRUB during boot?
+GRUB's role during boot is to be the first program to run after the BIOS/UEFI, which loads the operating system kernel into memory and transfers control to it. It presents a menu that allows users to select an operating system
+
+2. What is vmlinuz?
+vmlinuz is the name of a compressed, bootable Linux kernel executable file, found in the /boot directory. When a computer starts, the bootloader loads the vmlinuz file into memory, which then decompresses itself to start the operating system by initializing hardware and launching the necessary processes
+
+3. Why is initramfs used?
+Initramfs is used as a temporary root filesystem during the Linux boot process to load the kernel modules and drivers necessary to mount the real root filesystem.
+
+4. Why should you keep old kernels installed?
+To recover from the bad updates, Hardware compatibility, Application  compatibility etc.
+
+
+5. Action	Command
+A. Compile all sources	    a. make install
+B. Install modules	        c. make modules_install
+C. Update boot files	    b. make
+D. Show config menu	        d. make menuconfig
+
+6.  Use this command to list all your currently loaded kernel modules: lsmod | head -10
+ 
+Pick one module, and search online to find out what it does. Example: snd → it’s a sound card driver.
+
+tls -> driver that uses Transport Layer Security (TLS) for secure connections.
