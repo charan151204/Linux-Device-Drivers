@@ -1,0 +1,36 @@
+Assignments
+
+1. Theory check:
+
+What is a major number? What is a minor number?
+A-> Device identifiers where major = driver type, minor = specific device instance.
+
+What does register_chrdev() do?
+A-> Registers a character device driver with the kernel.
+
+What would happen if you don’t call unregister_chrdev() on exit?
+A-> The device would remain registered, potentially causing conflicts.
+
+Why do we use copy_from_user() in write()?
+A-> To safely copy data from user space to kernel space.
+
+Why is device_buffer[] important?
+A-> It stores data written to the device for later retrieval.
+
+2. Modify your driver to:
+
+Maintain a counter of how many bytes were written
+In read(), print: You wrote <N> bytes last time.
+
+3. Write a small C program to:
+
+Open /dev/mychardev
+Write "Testing from app"
+Read back and print the output
+
+Sample:
+ 
+int fd = open("/dev/mychardev", O_RDWR);
+write(fd, "Testing from app", 16);
+read(fd, buffer, 100);
+close(fd);
