@@ -1,0 +1,35 @@
+1. Answer these:
+
+What does proc_write() do?
+A-> - `proc_write()` handles writes to /proc entries from user space.
+
+Why do we use copy_from_user()?
+A-> `copy_from_user()` safely copies data from user space to kernel space.
+
+What is 0666 permission for?
+A-> `0666` allows read/write permissions for all users.
+
+What happens if you don’t null-terminate the string?
+A-> Missing null-termination causes buffer overflows and crashes.
+
+What’s the difference between proc_read and seq_file?
+A-> `seq_file` is preferred over `proc_read` for large outputs as it handles pagination automatically.
+
+2. Change your writer_write() function:
+
+If the input is "ON" → set a flag logging_enabled = 1
+If the input is "OFF" → set it to 0
+In writer_read(), show whether logging is ON or OFF
+
+Hint: if (strncmp(message, "ON", 2) == 0) logging_enabled = 1;
+A -> refer : Assignment/proc_write/
+
+3. Add two /proc entries:
+
+/proc/control — to receive commands (writeable)
+/proc/status — to read current state
+
+Example: 
+echo "Start" > /proc/control
+cat /proc/status
+# Output: Status: Running
