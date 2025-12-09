@@ -1,0 +1,27 @@
+1. Concept check
+
+What is the purpose of using a ring buffer?
+A ring buffer is a data structure used to efficiently transfer data between threads. It is a circular buffer that allows data to be written to it and read from it in a first-in-first-out (FIFO) order.
+
+How does a mutex protect shared resources?
+A mutex (short for "mutual exclusion") is a synchronization primitive that allows only one thread to access a shared resource at a time. It does this by locking the resource when one thread is using it, and unlocking it when the thread is done.
+
+Why use module_param() instead of hardcoding?
+Module parameters allow the user to pass values to the kernel module while loading it. This makes the module more configurable and easier to use.
+
+What happens when buffer is full?
+When the buffer is full, the write_index is equal to the read_index. In this case, the write function should block until there is space available in the buffer.
+
+How do read_index and write_index help?
+The read_index and write_index are used to keep track of where the next item should be written or read from in the buffer. They are used to wrap around the end of the buffer, so that the buffer can be used in a circular fashion.
+
+2. Add an integer parameter max_messages, and allocate the ring buffer dynamically using kmalloc() instead of a static array.
+
+(Hint: use char **buffer and allocate an array of char*, each of size MSG_LEN.)
+
+3. Write a C app to:
+
+Open your device file
+Write multiple lines to it
+Read all of them back
+Print the result
