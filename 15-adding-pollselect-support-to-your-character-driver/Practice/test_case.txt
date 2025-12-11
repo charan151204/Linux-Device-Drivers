@@ -1,0 +1,12 @@
+Compile: gcc poll_user.c -o poll_user
+
+Run and Test
+
+In one terminal:   ./poll_user
+
+In another terminal:  echo "Event triggered" | sudo tee /dev/polldev
+
+First terminal output: 
+
+Waiting for data (poll)...
+Received: Event triggered
