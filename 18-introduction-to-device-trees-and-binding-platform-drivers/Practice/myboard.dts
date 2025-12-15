@@ -1,0 +1,44 @@
+/*
+ * My device tree node
+ * compatible: required property specifying the compatible string
+ * id: required property specifying the device ID
+ * label: required property specifying the device label
+ * status: required property specifying the device status
+ */
+
+mydevice0: mydevice@0 {
+    compatible = "myvendor,mydevice";
+    id = <42>; /* device ID */
+    label = "MyDTDevice"; /* device label */
+    status = "okay"; /* device status */
+};
+
+
+OVERLAY:
+
+/dts-v1/;
+/plugin/;
+
+&{/} {
+    my_device {
+        compatible = "myvendor,mydevice";
+        reg = <0x42 0x0 0x0 0x0>; /* device ID */
+        label = "MyDTDevice"; /* device label */
+        status = "okay"; /* device status */
+    };
+};
+
+
+Then compile using:
+ 
+dtc -I dts -O dtb -o myoverlay.dtbo myoverlay.dts
+
+
+Summary
+
+Device Tree (DT)	 : Hardware description layer
+compatible string	 : Matching logic for DT ↔ driver
+of_match_table	     : Declares which devices a driver handles
+of_property_read	 : API to read u32 and string values from DT
+Driver modularity	 : You don't register the device manually — DT does it
+

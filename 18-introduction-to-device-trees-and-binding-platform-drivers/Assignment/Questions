@@ -1,0 +1,50 @@
+# Assignments
+
+## 1. Concept Quiz
+
+### What is the role of the compatible string?
+The compatible string is used to match a device tree node with a platform driver.
+
+### What happens if status = "disabled" in the DT?
+The device tree node will not be associated with a platform driver.
+
+### How does the kernel associate the DT node with a platform driver?
+The kernel associates the DT node with a platform driver by matching the compatible string in the DT node with the compatible string in the platform driver.
+
+### Can one driver match multiple compatible strings?
+Yes, a platform driver can match multiple compatible strings by specifying multiple entries in the of_device_id table.
+
+### What does of_property_read_u32() do?
+of_property_read_u32() reads a 32-bit unsigned integer value from a device tree property.
+
+## 2. Add More DT Properties
+
+### In the DT node:
+gpio = <0x12>;
+irq = <5>;
+
+myled: mygpioled@0 {
+    compatible = "myvendor,gpioled";
+    gpios = <&gpio1 12 GPIO_ACTIVE_HIGH>;
+    label = "myled";
+    status = "okay";
+};
+
+### In the driver:
+
+Use of_property_read_u32() to read gpio and irq
+
+Print their values in probe()
+
+## 3. Make Driver Generic
+
+### Add multiple entries to your of_device_id table:
+
+{ .compatible = "myvendor,devtype1" },
+{ .compatible = "myvendor,devtype2" },
+
+### In the DT:
+
+compatible = "myvendor,devtype2";
+
+Then load the same driver for multiple devices by matching compatible strings.
