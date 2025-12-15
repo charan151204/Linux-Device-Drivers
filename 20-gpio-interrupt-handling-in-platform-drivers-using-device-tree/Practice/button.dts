@@ -1,0 +1,6 @@
+mybutton: mygpiobutton@0 {
+    compatible = "myvendor,gpiobtn";
+    gpios = <&gpio1 18 GPIO_ACTIVE_LOW>;
+    label = "mybutton";
+    status = "okay";
+};

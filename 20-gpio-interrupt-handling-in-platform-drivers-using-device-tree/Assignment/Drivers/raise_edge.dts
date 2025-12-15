@@ -1,0 +1,6 @@
+/ {
+    compatible = "myvendor,raise-edge-gpio";
+    interrupt-parent = <&gpio1 18 IRQ_TYPE_EDGE_RISING>;
+    interrupt-controller = <&gpio1 18 IRQ_TYPE_EDGE_RISING>;
+    interrupt-controller,irq-trigger = "rising";
+};

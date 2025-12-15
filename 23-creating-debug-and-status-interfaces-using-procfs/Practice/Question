@@ -1,0 +1,9 @@
+Driver Example: /proc/gpiobtn_info
+You’ll add a /proc/gpiobtn_info file to your existing GPIO driver.
+
+It will display:
+ 
+Driver: GPIO Button + LED
+IRQ Number: 32
+Press Count: 5
+LED State: ON
